@@ -11,27 +11,30 @@
 from random import randrange
 from math import ceil
 
-wallet = 1000
+wallet = 1000  # L'argent
 
 while wallet > 0:
 
     number = int(input("Entrez un numéro entre 0 et 49:"))
 
+    # Bloc permettant d'éviter de saisir un numéro non valide.
     while number < 0 or number >= 50:
         print("Votre numéro n'est pas compris entre 0 et 49.")
         number = int(input("Entrez un numéro entre 0 et 49:"))
 
     bet = int(input("Entrez le montant de votre mise:"))
 
+    # Le joueur ne peut pas miser une somme supérieur à celle contenue dans le porte monnaie.
     while bet > wallet:
         print("Vous devez entrer une mise inférieur à {}$!".format(wallet))
         bet = int(input("Entrez le montant de votre mise:"))
 
-    wallet -= bet
+    wallet -= bet  # On retire la mise du porte monnaie.
 
-    winning_number = randrange(50)
+    winning_number = randrange(50)  # Le numéro gagnant est générer au hasard.
     print("Le numéro gagnant est le {}!".format(winning_number))
 
+    # Condition pour gagner ou non de l'argent.
     if number == winning_number:
         price = 3 * bet
         wallet += price
@@ -46,4 +49,4 @@ while wallet > 0:
     print("Il vous reste {}$ dans votre porte monnaie.".format(wallet))
 else:
     print("Vous êtes fauché. GAME OVER !!!")
-    quit()
+    quit()  # Losrque le porte monnaie est vide, on quitte le jeu.
