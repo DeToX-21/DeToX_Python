@@ -25,7 +25,7 @@ while wallet > 0:
     bet = int(input("Entrez le montant de votre mise:"))
 
     # Le joueur ne peut pas miser une somme supérieur à celle contenue dans le porte monnaie.
-    while bet > wallet:
+    while bet < 0 or bet > wallet:
         print("Vous devez entrer une mise inférieur à {}$!".format(wallet))
         bet = int(input("Entrez le montant de votre mise:"))
 
